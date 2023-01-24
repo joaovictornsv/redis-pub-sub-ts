@@ -1,7 +1,7 @@
-<p align="center">
+<div align="center">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" width=100 />
   <h1>Pub/Sub with Redis + Node.js</h1>
-</p>
+</div>
 
 ## Installation
 
