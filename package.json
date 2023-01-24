@@ -1,0 +1,21 @@
+{
+  "name": "redis-pub-sub",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:pub": "tsx publisher/index.ts",
+    "start:sub": "tsx subscriber/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^4.12.0",
+    "ioredis": "^5.2.5"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "tsx": "^3.12.2"
+  }
+}
