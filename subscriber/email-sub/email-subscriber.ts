@@ -23,9 +23,6 @@ export class EmailSubscriber {
   private startlistenMessages() {
     this.redis.on("message", (channel, message) => {
       console.log(`>> Received ${message} from ${channel}`);
-      const parsed = JSON.parse(message)
-
-      console.log(parsed.email);
     });
   }
 }
