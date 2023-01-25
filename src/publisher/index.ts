@@ -1,11 +1,13 @@
 import Fastify from 'fastify'
-import { RedisService } from '../config/redis';
+import { EncondigService } from '../common/encoding';
+import { RedisService } from '../common/redis';
 import { EmailPublisher } from './email-pub/email-publisher';
 
 const app = Fastify()
 
 const redis = new RedisService()
-const emailPublisher = new EmailPublisher(redis)
+const encodingService = new EncondigService()
+const emailPublisher = new EmailPublisher(redis, encodingService)
 
 app.post('/pub', emailPublisher.publish)
 

@@ -1,14 +1,18 @@
 import { FastifyRequest } from 'fastify';
-import { RedisService, CHANNEL } from '../../config/redis';
+import { EncondigService } from '../../common/encoding';
+import { RedisService, CHANNEL } from '../../common/redis';
 
 export class EmailPublisher {
   constructor(
-    private readonly redis: RedisService
+    private readonly redis: RedisService,
+    private readonly encodingService: EncondigService
   ) { }
 
   publish = async (request: FastifyRequest) => {
     const message = this.buildMessage(request)
-    await this.publishMessage(message)
+    const encodedMessage = this.encodingService.encode(message)
+
+    await this.publishMessage(encodedMessage)
   }
 
   private buildMessage(request: FastifyRequest) {

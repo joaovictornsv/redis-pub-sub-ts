@@ -1,8 +1,10 @@
-import { RedisService } from '../../config/redis';
+import { EncondigService } from '../../common/encoding';
+import { RedisService } from '../../common/redis';
 
 export class EmailSubscriber {
   constructor(
-    private readonly redis: RedisService
+    private readonly redis: RedisService,
+    private readonly encodingService: EncondigService
   ) { }
 
   async listen() {
@@ -22,7 +24,9 @@ export class EmailSubscriber {
 
   private startlistenMessages() {
     this.redis.on("message", (channel, message) => {
-      console.log(`>> Received ${message} from ${channel}`);
+      const decodedMessage = this.encodingService.decode(message)
+
+      console.log(`>> Received ${decodedMessage} from ${channel}`);
     });
   }
 }
