@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:pub": "tsx publisher/index.ts",
-    "start:sub": "tsx subscriber/index.ts"
+    "start:pub": "tsx src/publisher/index.ts",
+    "start:sub": "tsx src/subscriber/index.ts"
   },
   "keywords": [],
   "author": "",
